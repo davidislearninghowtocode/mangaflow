@@ -15,3 +15,4 @@ Thumbs.db
 
 #bỏ qua các file lưu thông tin mật khẩu/ cấu hình cá nhân nếu có
 .env
+dbt_mangaflow/profiles.yml
