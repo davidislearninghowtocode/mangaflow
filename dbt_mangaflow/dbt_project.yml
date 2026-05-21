@@ -1,0 +1,26 @@
+name: 'dbt_mangaflow'
+version: '1.0.0'
+config-version: 2
+
+# Tên profile này phải trùng khớp với tên khai báo ở đầu file profiles.yml
+profile: 'dbt_mangaflow'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_mangaflow:
+    +materialized: view
+    
+    staging:
+      +schema: silver  # Ép các file trong thư mục staging vào schema silver
+    marts:
+      +schema: gold    # Ép các file trong thư mục marts vào schema gold

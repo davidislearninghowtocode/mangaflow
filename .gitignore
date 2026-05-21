@@ -1,0 +1,17 @@
+#Bỏ qua virtual env Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+#bỏ qua các file sinh ra tự động của dbt
+dbt_mangaflow/target/
+dbt_mangaflow/dbt_packages/
+dbt_mangaflow/logs
+
+#bỏ qua file rác của MacOS
+.DS_Store
+Thumbs.db
+
+#bỏ qua các file lưu thông tin mật khẩu/ cấu hình cá nhân nếu có
+.env

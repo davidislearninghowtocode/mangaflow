@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: mangaflow_raw
+    database: mangaflow_db
+    schema: bronze
+    tables:
+      - name: stg_raw_manga

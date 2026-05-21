@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: dim_manga
+    description: "Bảng chiều chứa thông tin chi tiết của từng bộ truyện Manga"
+    columns:
+      - name: manga_id
+        description: "Khóa chính của bộ truyện"
+        tests:
+          - unique    # Kiểm tra ID không được trùng lặp
+          - not_null  # Kiểm tra ID không được phép rỗng
+
+  - name: fct_manga_performance
+    description: "Bảng sự kiện chứa các chỉ số đo lường hiệu năng của truyện theo thời gian"
+    columns:
+      - name: manga_id
+        tests:
+          - not_null
+          # Kiểm tra tính toàn vẹn dữ liệu: ID trong bảng Fact phải tồn tại ở bảng Dim
+          - relationships:
+              to: ref('dim_manga')
+              field: manga_id
